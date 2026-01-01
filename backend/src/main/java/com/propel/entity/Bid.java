@@ -12,9 +12,9 @@ import lombok.*;
 public class Bid {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne @JoinColumn(name = "project_id")
+    @ManyToOne @JoinColumn(name = "projectid")
     private Project project;
-    @ManyToOne @JoinColumn(name = "contractor_id")
+    @ManyToOne @JoinColumn(name = "contractorid")
     private User contractor;
     private Double bidAmount;
     private Integer daysToComplete;

@@ -23,7 +23,7 @@ public class Project {
     private List<String> requiredSkills;
     @Enumerated(EnumType.STRING)
     private Status status;
-    @ManyToOne @JoinColumn(name = "created_by_id")
+    @ManyToOne @JoinColumn(name = "created_byid")
     private User createdBy;
     private String workSubmissionLink;
     @OneToMany(cascade = CascadeType.ALL)

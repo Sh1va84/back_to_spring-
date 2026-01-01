@@ -21,11 +21,11 @@ public class AuthService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(User.Role.valueOf(request.getRole())).build();
         var saved = repository.save(user);
-        return AuthResponse.builder().token(jwtService.generateToken(user))._id(saved.getId()).name(saved.getName()).email(saved.getEmail()).role(saved.getRole().name()).build();
+        return AuthResponse.builder().token(jwtService.generateToken(user)).id(saved.getId()).name(saved.getName()).email(saved.getEmail()).role(saved.getRole().name()).build();
     }
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         var user = repository.findByEmail(request.getEmail()).orElseThrow();
-        return AuthResponse.builder().token(jwtService.generateToken(user))._id(user.getId()).name(user.getName()).email(user.getEmail()).role(user.getRole().name()).build();
+        return AuthResponse.builder().token(jwtService.generateToken(user)).id(user.getId()).name(user.getName()).email(user.getEmail()).role(user.getRole().name()).build();
     }
 }

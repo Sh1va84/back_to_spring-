@@ -13,13 +13,13 @@ import java.time.LocalDateTime;
 public class Contract {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne @JoinColumn(name = "project_id")
+    @ManyToOne @JoinColumn(name = "projectid")
     private Project project;
-    @ManyToOne @JoinColumn(name = "client_id")
+    @ManyToOne @JoinColumn(name = "clientid")
     private User client;
-    @ManyToOne @JoinColumn(name = "contractor_id")
+    @ManyToOne @JoinColumn(name = "contractorid")
     private User contractor;
-    @OneToOne @JoinColumn(name = "bid_id")
+    @OneToOne @JoinColumn(name = "bidid")
     private Bid bid;
     private Double amount;
     private Integer days;
