@@ -2,24 +2,26 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import { toast } from 'react-hot-toast';
-import { Plus, X, ListTodo, Home, AlertTriangle } from 'lucide-react';
+import { X, ListTodo, Home, AlertTriangle } from 'lucide-react';
+import ImageUploadAI from '../components/ImageUploadAI';
 
 const CreateProject = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    title: '', 
-    description: '', 
-    budget: '', 
-    deadline: '', 
-    requiredSkills: '', 
+    title: '',
+    description: '',
+    budget: '',
+    deadline: '',
+    requiredSkills: '',
     visibility: 'public',
     propertyAddress: '',
     maintenanceCategory: 'Plumbing',
     urgencyLevel: 'Routine'
   });
-  
+
   const [tasks, setTasks] = useState([]);
   const [currentTask, setCurrentTask] = useState('');
+  const [isAiGenerated, setIsAiGenerated] = useState(false);
 
   const maintenanceCategories = [
     'Plumbing', 'Electrical', 'HVAC', 'Carpentry', 
@@ -34,6 +36,14 @@ const CreateProject = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === 'description' && isAiGenerated) {
+      setIsAiGenerated(false);
+    }
+  };
+
+  const handleAiDescriptionGenerated = (description) => {
+    setFormData({ ...formData, description });
+    setIsAiGenerated(true);
   };
 
   const addTask = () => {
@@ -123,31 +133,44 @@ const CreateProject = () => {
           {/* Work Order Title */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Work Order Title</label>
-            <input 
-              name="title" 
-              type="text" 
-              required 
-              className="mt-1 block w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" 
+            <input
+              name="title"
+              type="text"
+              required
+              className="mt-1 block w-full border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
               placeholder="e.g. Emergency Boiler Repair - No Hot Water"
               value={formData.title}
               onChange={handleChange}
             />
           </div>
 
+          {/* AI Image Upload Component */}
+          <ImageUploadAI onDescriptionGenerated={handleAiDescriptionGenerated} />
+
           {/* Description */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Detailed Description</label>
-            <textarea 
-              name="description" 
-              rows="4" 
-              required 
-              className="mt-1 block w-full border border-gray-300 p-3 rounded-lg resize-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500" 
+            <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+              Detailed Description
+              {isAiGenerated && (
+                <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium bg-purple-100 text-purple-700 rounded-full">
+                  <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                  AI Generated
+                </span>
+              )}
+            </label>
+            <textarea
+              name="description"
+              required
+              style={{ minHeight: '100px', height: 'auto' }}
+              className="mt-1 block w-full border border-gray-300 p-3 rounded-lg resize-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 overflow-hidden"
               placeholder="Describe the issue in detail. Include any relevant information about the problem, when it started, and any safety concerns."
               value={formData.description}
               onChange={(e) => {
                 handleChange(e);
                 e.target.style.height = 'auto';
-                e.target.style.height = e.target.scrollHeight + 'px';
+                e.target.style.height = Math.max(100, e.target.scrollHeight) + 'px';
               }}
             />
           </div>

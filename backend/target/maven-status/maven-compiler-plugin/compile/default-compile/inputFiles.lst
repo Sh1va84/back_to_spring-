@@ -1,3 +1,4 @@
+/home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/dto/response/ImageAnalysisResponse.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/dto/request/BidRequest.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/controller/UserController.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/util/EmailService.java
@@ -10,6 +11,7 @@
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/dto/request/LoginRequest.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/exception/GlobalExceptionHandler.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/exception/ResourceNotFoundException.java
+/home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/controller/ImageAnalysisController.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/entity/User.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/util/InvoiceGenerator.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/repository/NotificationRepository.java
@@ -22,6 +24,7 @@
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/controller/ProjectController.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/entity/Project.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/service/AdminService.java
+/home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/config/GeminiConfig.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/controller/DisputeController.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/service/AuthService.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/config/CorsConfig.java
@@ -41,6 +44,7 @@
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/repository/DisputeRepository.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/controller/ContractController.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/dto/response/ApiResponse.java
+/home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/service/GeminiService.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/repository/ProjectRepository.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/PropelApplication.java
 /home/linear/Desktop/New Folder 3/backend/src/main/java/com/propel/service/ContractService.java

@@ -15,4 +15,14 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+export const analyzeMaintenanceImage = async (imageFile) => {
+  const formData = new FormData();
+  formData.append('image', imageFile);
+
+  const response = await api.post('/v1/maintenance/analyze-image', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+  return response.data;
+};
+
 export default api;

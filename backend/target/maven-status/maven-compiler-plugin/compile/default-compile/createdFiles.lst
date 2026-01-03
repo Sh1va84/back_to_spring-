@@ -10,10 +10,13 @@ com/propel/controller/AuthController.class
 com/propel/service/ProjectService.class
 com/propel/entity/User$Role.class
 com/propel/entity/Dispute$Status.class
+com/propel/dto/response/ImageAnalysisResponse$ImageAnalysisResponseBuilder.class
 com/propel/entity/ChecklistItem.class
+com/propel/dto/response/ImageAnalysisResponse.class
 com/propel/entity/Bid$BidBuilder.class
 com/propel/dto/request/LoginRequest.class
 com/propel/controller/DisputeController.class
+com/propel/service/GeminiService.class
 com/propel/controller/ContractController$CreateContractRequest.class
 com/propel/controller/ContractController.class
 com/propel/entity/User.class
@@ -41,6 +44,7 @@ com/propel/entity/Bid.class
 com/propel/controller/ContractController$DeliverWorkRequest.class
 com/propel/service/AdminService.class
 com/propel/repository/ProjectRepository.class
+com/propel/controller/ImageAnalysisController.class
 com/propel/entity/Contract$EscrowStatus.class
 com/propel/service/BidService.class
 com/propel/security/SecurityConfig.class
@@ -51,3 +55,4 @@ com/propel/entity/User$UserBuilder.class
 com/propel/entity/Contract$Status.class
 com/propel/entity/Dispute.class
 com/propel/entity/Project$ProjectBuilder.class
+com/propel/config/GeminiConfig.class
