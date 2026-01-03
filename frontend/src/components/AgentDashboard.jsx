@@ -147,7 +147,7 @@ const AgentDashboard = ({ user }) => {
                         >
                             {project.title}
                         </Link>
-                        <p className="text-xs text-gray-400 mb-2">Request ID: {project.id.substring(0, 12)}...</p>
+                        <p className="text-xs text-gray-400 mb-2">Request ID: {String(project.id).substring(0, 12)}...</p>
                         <p className="text-sm text-gray-600 line-clamp-2">{project.description}</p>
                     </div>
                     
